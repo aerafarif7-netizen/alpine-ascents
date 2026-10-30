@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alpine Ascents | Mountaineering &amp; Climbing Expeditions</title>
+<meta name="description" content="Alpine Ascents — detailed information, history, techniques, records and guided expeditions in mountaineering and climbing.">
+
+<!-- Fonts & Icons -->
+<link href="css/poppins.css" rel="stylesheet">
+<link rel="stylesheet" href="css/bootstrap-icons.css">
+<!-- Bootstrap 5 -->
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<!-- Site styles -->
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="apple-touch-icon" href="images/logo.png">
+<script>
+  // Apply saved theme before first paint (prevents a light/dark flash). Default = light.
+  try { document.documentElement.setAttribute("data-theme", localStorage.getItem("aa-theme") || "light"); } catch (e) {}
+</script>
+</head>
+<body>
+
+<!-- Preloader -->
+<div id="preloader"><div class="loader-peak"></div></div>
+
+<!-- Toast (shown after login/signup redirect) -->
+<div class="toast-msg" id="toastMsg"><i class="bi bi-check-circle-fill"></i><span></span></div>
+
+<!-- ============ NAVBAR ============ -->
+<nav class="navbar navbar-expand-xl navbar-custom fixed-top">
+  <div class="container-fluid px-3 px-xl-4">
+    <a class="navbar-brand" href="#home" aria-label="Alpine Ascents home">
+      <span class="brand-logo"><img class="brand-mark" src="images/logo.png" alt="Alpine Ascents logo"><span class="brand-text"><b>Alpine</b><small>Ascents</small></span></span>
+    </a>
+    <div class="d-flex align-items-center gap-2 order-xl-3">
+      <button class="theme-toggle" type="button" aria-label="Toggle dark / light mode"><i class="bi bi-moon-stars-fill"></i></button>
+      <span class="auth-links d-none d-xl-flex align-items-center gap-2">
+        <a href="#login" data-auth-open="login" class="btn btn-outline-brand btn-sm">Login</a>
+        <a href="#signup" data-auth-open="signup" class="btn btn-brand btn-sm">Sign Up</a>
+      </span>
+      <button class="navbar-toggler border-0 p-1" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+        <i class="bi bi-list fs-2"></i>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse order-xl-2" id="mainNavbar">
+      <ul class="navbar-nav mx-xl-auto align-items-xl-center">
+        <li class="nav-item"><a class="nav-link nav-link-custom" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom" href="#about">About</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link nav-link-custom dropdown-toggle" href="#mountaineering" data-bs-toggle="dropdown">Mountaineering</a>
+          <ul class="dropdown-menu dropdown-menu-custom">
+            <li><a class="dropdown-item" href="#mountaineering" data-tab="history">History</a></li>
+            <li><a class="dropdown-item" href="#mountaineering" data-tab="types">Types / Styles</a></li>
+            <li><a class="dropdown-item" href="#mountaineering" data-tab="techniques">Techniques</a></li>
+            <li><a class="dropdown-item" href="#mountaineering" data-tab="sheltering">Sheltering</a></li>
+            <li><a class="dropdown-item" href="#mountaineering" data-tab="hazards">Hazards</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link nav-link-custom" href="#records">Records</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom" href="#organizations">Organizations</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom" href="#gallery">Gallery</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom" href="#latest">Latest</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom" href="#guidelines">Guidelines</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom" href="#faq">FAQ</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom" href="#contact">Contact</a></li>
+      </ul>
+      <div class="auth-links d-flex align-items-center gap-2 mt-3 d-xl-none">
+        <a href="#login" data-auth-open="login" class="btn btn-outline-brand btn-sm">Login</a>
+        <a href="#signup" data-auth-open="signup" class="btn btn-brand btn-sm">Sign Up</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO SLIDER ============ -->
+<section class="hero-slider" id="home">
+  <div class="hero-slide active" style="background-image:url('images/hero-1.jpg')">
+    <div class="kenburns" style="background-image:url('images/hero-1.jpg')"></div>
+    <div class="container"><div class="hero-content">
+      <span class="hero-slide-tag">Unparalleled Mountain Adventures</span>
+      <h1>Conquer Every Summit With Alpine Ascents</h1>
+      <p>Detailed guides, real expedition records and a community of climbers — everything you need to turn mountaineering ambition into achievement.</p>
+      <div class="hero-btns">
+        <a href="#about" class="btn btn-brand">Explore Mountaineering <i class="bi bi-arrow-down-right ms-1"></i></a>
+        <a href="#organizations" class="btn btn-outline-brand" style="border-color:#fff;color:#fff">Find a Guide <i class="bi bi-compass ms-1"></i></a>
+      </div>
+    </div></div>
+  </div>
+  <div class="hero-slide" style="background-image:url('images/hero-2.jpg')">
+    <div class="kenburns" style="background-image:url('images/hero-2.jpg')"></div>
+    <div class="container"><div class="hero-content">
+      <span class="hero-slide-tag">Guided &amp; Safe Expeditions</span>
+      <h1>Climb With The Best Talent In The Country</h1>
+      <p>From first-time trekkers to seasoned alpinists, our certified guides help every climber achieve their personal summit.</p>
+      <div class="hero-btns">
+        <a href="#records" class="btn btn-brand">View World Records <i class="bi bi-trophy ms-1"></i></a>
+        <a href="#gallery" class="btn btn-outline-brand" style="border-color:#fff;color:#fff">Watch Gallery <i class="bi bi-play-circle ms-1"></i></a>
+      </div>
+    </div></div>
+  </div>
+  <div class="hero-slide" style="background-image:url('images/hero-3-login.jpg')">
+    <div class="kenburns" style="background-image:url('images/hero-3-login.jpg')"></div>
+    <div class="container"><div class="hero-content">
+      <span class="hero-slide-tag">Knowledge Builds Confidence</span>
+      <h1>History, Techniques &amp; Hazards — All In One Place</h1>
+      <p>A complete, step-by-step mountaineering knowledge base: styles, sheltering, safety guidelines and the latest gear innovations.</p>
+      <div class="hero-btns">
+        <a href="#mountaineering" class="btn btn-brand">Start Learning <i class="bi bi-book ms-1"></i></a>
+        <a href="#faq" class="btn btn-outline-brand" style="border-color:#fff;color:#fff">Have Questions? <i class="bi bi-chat-dots ms-1"></i></a>
+      </div>
+    </div></div>
+  </div>
+  <div class="hero-slide" style="background-image:url('images/hero-4-signup.jpg')">
+    <div class="kenburns" style="background-image:url('images/hero-4-signup.jpg')"></div>
+    <div class="container"><div class="hero-content">
+      <span class="hero-slide-tag">Join The Community</span>
+      <h1>Your Next Summit Starts Here</h1>
+      <p>Create a free account, connect with mountaineering clubs worldwide, and track the records that inspire your next climb.</p>
+      <div class="hero-btns">
+        <a href="#signup" data-auth-open="signup" class="btn btn-brand">Create Free Account <i class="bi bi-person-plus ms-1"></i></a>
+        <a href="#organizations" class="btn btn-outline-brand" style="border-color:#fff;color:#fff">Explore Clubs <i class="bi bi-geo-alt ms-1"></i></a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="hero-nav-btn hero-nav-prev"><i class="bi bi-chevron-left fs-4"></i></div>
+  <div class="hero-nav-btn hero-nav-next"><i class="bi bi-chevron-right fs-4"></i></div>
+  <div class="hero-dots"></div>
+  <a href="#about" class="hero-scroll-cue"><i class="bi bi-mouse2 fs-5"></i> Scroll</a>
+</section>
+
+<!-- ============ STATS STRIP ============ -->
+<section class="stats-strip">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-6 col-md-3 stat-item"><div class="num" data-count="73" data-suffix="+">0</div><div class="lbl">Years of Expertise</div></div>
+      <div class="col-6 col-md-3 stat-item"><div class="num" data-count="480" data-suffix="+">0</div><div class="lbl">Guided Expeditions</div></div>
+      <div class="col-6 col-md-3 stat-item"><div class="num" data-count="120" data-suffix="+">0</div><div class="lbl">Certified Climbing Guides</div></div>
+      <div class="col-6 col-md-3 stat-item"><div class="num" data-count="32" data-suffix="">0</div><div class="lbl">Partner Organizations</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT / INTRO ============ -->
+<section class="section-pad" id="about">
+  <div class="container">
+    <div class="row align-items-center g-4 g-lg-5">
+      <div class="col-lg-6 reveal">
+        <span class="eyebrow">Who We Are</span>
+        <h2 class="section-title">Setting Guiding Standards In Mountaineering Since Day One</h2>
+        <p class="text-muted-c">Alpine Ascents is a leader in the mountaineering and climbing industry, instrumental in setting guiding standards in the international climbing community. By using the best climbing talent in the country, we offer climbers at every level the opportunity to achieve their personal aspirations through quality, challenging, safe and fun expeditions.</p>
+        <p class="text-muted-c">Mountaineering — also called mountain climbing — is the sport of attaining, or attempting to attain, high points in mountainous regions, mainly for the pleasure of the climb. While the term is sometimes loosely applied to walking up low mountains, it is more properly restricted to terrain and weather conditions that demand real experience and preparation. Unlike most sports, mountaineering lacks a single governing body — climbers adhere to a wide variety of techniques and philosophies.</p>
+        <div class="row g-3 mt-2">
+          <div class="col-6"><i class="bi bi-check-circle-fill text-warning me-2"></i>Certified Guides</div>
+          <div class="col-6"><i class="bi bi-check-circle-fill text-warning me-2"></i>Global Partner Clubs</div>
+          <div class="col-6"><i class="bi bi-check-circle-fill text-warning me-2"></i>Safety-First Planning</div>
+          <div class="col-6"><i class="bi bi-check-circle-fill text-warning me-2"></i>All Experience Levels</div>
+        </div>
+      </div>
+      <div class="col-lg-6 reveal">
+        <img src="images/about-ridge.jpg" class="img-fluid rounded-4 shadow" alt="Climbers roped together ascending an exposed ridge" style="box-shadow: var(--card-shadow);">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MOUNTAINEERING TOPICS (History / Types / Techniques / Sheltering / Hazards) ============ -->
+<section class="section-pad bg-soft" id="mountaineering">
+  <div class="container">
+    <div class="text-center reveal">
+      <span class="eyebrow">Learn The Fundamentals</span>
+      <h2 class="section-title">Everything About Mountaineering</h2>
+      <p class="section-sub mx-auto">Detailed, laddered information covering the history, styles, techniques, sheltering options and hazards every climber should understand.</p>
+    </div>
+
+    <ul class="nav topic-tabs justify-content-center mb-4 reveal" id="topicTabs" role="tablist">
+      <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#history" type="button"><i class="bi bi-hourglass-split me-1"></i> History</button></li>
+      <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#types" type="button"><i class="bi bi-signpost-split me-1"></i> Types / Styles</button></li>
+      <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#techniques" type="button"><i class="bi bi-gear-wide-connected me-1"></i> Techniques</button></li>
+      <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#sheltering" type="button"><i class="bi bi-house-door me-1"></i> Sheltering</button></li>
+      <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#hazards" type="button"><i class="bi bi-exclamation-triangle me-1"></i> Hazards</button></li>
+    </ul>
+
+    <div class="tab-content reveal">
+      <div class="tab-pane fade show active" id="history">
+        <div class="topic-pane row align-items-center g-4">
+          <div class="col-lg-6">
+            <h3>A Brief History of Mountaineering</h3>
+            <p class="text-muted-c">The sport is widely dated to 1786, when Jacques Balmat and Dr. Michel Paccard made the first recorded ascent of Mont Blanc. The following "golden age of alpinism" (1854–1865) saw most major Alpine peaks climbed for the first time.</p>
+            <ul>
+              <li>1786 — First ascent of Mont Blanc, birth of modern mountaineering</li>
+              <li>1865 — Edward Whymper's first ascent of the Matterhorn</li>
+              <li>1950 — Annapurna becomes the first 8,000m peak ever climbed</li>
+              <li>1953 — Edmund Hillary &amp; Tenzing Norgay summit Mount Everest</li>
+              <li>1986 — Reinhold Messner completes all fourteen 8,000m peaks</li>
+            </ul>
+          </div>
+          <div class="col-lg-6"><img src="images/history-lake.jpg" class="img-fluid w-100" alt="A turquoise glacial lake beneath snow-capped peaks"></div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="types">
+        <div class="topic-pane row align-items-center g-4">
+          <div class="col-lg-6 order-lg-2">
+            <h3>Types &amp; Styles of Climbing</h3>
+            <p class="text-muted-c">Mountaineers choose a style based on terrain, altitude and philosophy:</p>
+            <ul>
+              <li><strong>Alpine style</strong> — fast, lightweight, self-supported ascents</li>
+              <li><strong>Expedition / Himalayan style</strong> — fixed camps, ropes and oxygen for extreme altitude</li>
+              <li><strong>Rock climbing</strong> — technical ascents of rock faces</li>
+              <li><strong>Ice &amp; mixed climbing</strong> — frozen waterfalls and snow/rock combinations</li>
+              <li><strong>Ski mountaineering</strong> — ascending and descending peaks on skis</li>
+            </ul>
+          </div>
+          <div class="col-lg-6 order-lg-1"><img src="images/types-peak.jpg" class="img-fluid w-100" alt="Climber on an exposed rock ridge"></div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="techniques">
+        <div class="topic-pane row align-items-center g-4">
+          <div class="col-lg-6">
+            <h3>Core Climbing Techniques</h3>
+            <p class="text-muted-c">Safe mountaineering relies on a foundation of practiced technical skills:</p>
+            <ul>
+              <li>Roped travel &amp; glacier team arrest</li>
+              <li>Self-arrest with an ice axe on steep snow</li>
+              <li>Crevasse rescue systems (pulleys &amp; prusiks)</li>
+              <li>Belaying and anchor building</li>
+              <li>Route-finding and pacing for altitude</li>
+            </ul>
+          </div>
+          <div class="col-lg-6"><img src="images/techniques-hikers.jpg" class="img-fluid w-100" alt="Climber using an ice axe on a steep slope"></div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="sheltering">
+        <div class="topic-pane row align-items-center g-4">
+          <div class="col-lg-6 order-lg-2">
+            <h3>Sheltering On The Mountain</h3>
+            <p class="text-muted-c">Shelter choice depends on altitude, duration and weather exposure:</p>
+            <ul>
+              <li>Four-season expedition tents for base &amp; high camps</li>
+              <li>Snow caves and igloos for emergency insulation</li>
+              <li>Bivouac sacks for fast, lightweight ascents</li>
+              <li>Mountain huts along popular Alpine routes</li>
+            </ul>
+          </div>
+          <div class="col-lg-6 order-lg-1"><img src="images/sheltering-tent.jpg" class="img-fluid w-100" alt="Tents pitched at a high-altitude base camp under a starry sky"></div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="hazards">
+        <div class="topic-pane row align-items-center g-4">
+          <div class="col-lg-6">
+            <h3>Understanding The Hazards</h3>
+            <p class="text-muted-c">For the untrained, mountaineering is a dangerous pastime. Respect these hazards and prepare accordingly:</p>
+            <ul>
+              <li>Avalanches and unstable snowpack</li>
+              <li>Hidden crevasses on glaciated terrain</li>
+              <li>Altitude sickness — AMS, HAPE and HACE</li>
+              <li>Rockfall and sudden weather changes</li>
+              <li>Frostbite and hypothermia</li>
+            </ul>
+          </div>
+          <div class="col-lg-6"><img src="images/hazards-peaks.jpg" class="img-fluid w-100" alt="Rugged snow-capped peaks in the high mountains"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RECORDS (paginated table) ============ -->
+<section class="section-pad" id="records">
+  <div class="container">
+    <div class="text-center reveal">
+      <span class="eyebrow">Hall Of Fame</span>
+      <h2 class="section-title">Mountaineering World Records</h2>
+      <p class="section-sub mx-auto">Milestones that shaped the sport — browse the full list using the pagination below.</p>
+    </div>
+    <div class="records-table-wrap reveal">
+      <div class="table-responsive">
+        <table class="records-table table" id="recordsTable">
+          <thead><tr><th>#</th><th>Record</th><th>Achieved By</th><th>Year</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>First ascent of Mount Everest</td><td>Edmund Hillary &amp; Tenzing Norgay</td><td><span class="badge-year">1953</span></td></tr>
+            <tr><td>2</td><td>First ascent of K2</td><td>Achille Compagnoni &amp; Lino Lacedelli</td><td><span class="badge-year">1954</span></td></tr>
+            <tr><td>3</td><td>First 8,000m peak ever climbed (Annapurna)</td><td>Maurice Herzog &amp; Louis Lachenal</td><td><span class="badge-year">1950</span></td></tr>
+            <tr><td>4</td><td>First woman to summit Everest</td><td>Junko Tabei</td><td><span class="badge-year">1975</span></td></tr>
+            <tr><td>5</td><td>First solo ascent of Everest without oxygen</td><td>Reinhold Messner</td><td><span class="badge-year">1980</span></td></tr>
+            <tr><td>6</td><td>First to climb all fourteen 8,000m peaks</td><td>Reinhold Messner</td><td><span class="badge-year">1986</span></td></tr>
+            <tr><td>7</td><td>Youngest person to summit Everest</td><td>Jordan Romero (age 13)</td><td><span class="badge-year">2010</span></td></tr>
+            <tr><td>8</td><td>Oldest person to summit Everest</td><td>Yuichiro Miura (age 80)</td><td><span class="badge-year">2013</span></td></tr>
+            <tr><td>9</td><td>First free solo of El Capitan (Freerider)</td><td>Alex Honnold</td><td><span class="badge-year">2017</span></td></tr>
+            <tr><td>10</td><td>First winter ascent of Mount Everest</td><td>Polish National Expedition</td><td><span class="badge-year">1980</span></td></tr>
+            <tr><td>11</td><td>Most Everest summits by one climber</td><td>Kami Rita Sherpa (32 times)</td><td><span class="badge-year">2026</span></td></tr>
+            <tr><td>12</td><td>First ascent of Mont Blanc, birth of modern mountaineering</td><td>Jacques Balmat &amp; Michel Paccard</td><td><span class="badge-year">1786</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="pagination-custom" id="recordsPager"></div>
+  </div>
+</section>
+
+<!-- ============ ORGANIZATIONS / CLUBS / MAP / SUCCESS STORIES ============ -->
+<section class="section-pad bg-soft" id="organizations">
+  <div class="container">
+    <div class="text-center reveal">
+      <span class="eyebrow">Find A Partner</span>
+      <h2 class="section-title">Climbing Organizations &amp; Clubs Worldwide</h2>
+      <p class="section-sub mx-auto">Explore guiding organizations and clubs across the globe, located using embedded GeoLocation maps.</p>
+    </div>
+    <div class="row g-4 mb-5">
+      <div class="col-md-4 reveal">
+        <div class="map-card">
+          <iframe src="https://www.google.com/maps?q=Khumbu,Nepal&output=embed" loading="lazy" allowfullscreen title="Himalayan Climbing Guides - Nepal"></iframe>
+          <div class="map-info">
+            <h5><i class="bi bi-geo-alt-fill text-warning me-1"></i> Himalayan Climbing Guides</h5>
+            <p class="text-muted-c mb-0">Khumbu Region, Nepal — Everest &amp; Himalayan expeditions</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 reveal">
+        <div class="map-card">
+          <iframe src="https://www.google.com/maps?q=Chamonix,France&output=embed" loading="lazy" allowfullscreen title="Alpine Club - Chamonix France"></iframe>
+          <div class="map-info">
+            <h5><i class="bi bi-geo-alt-fill text-warning me-1"></i> Chamonix Alpine Club</h5>
+            <p class="text-muted-c mb-0">Chamonix, France — Mont Blanc massif guiding</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 reveal">
+        <div class="map-card">
+          <iframe src="https://www.google.com/maps?q=Torres+del+Paine,Patagonia&output=embed" loading="lazy" allowfullscreen title="Patagonia Expeditions"></iframe>
+          <div class="map-info">
+            <h5><i class="bi bi-geo-alt-fill text-warning me-1"></i> Patagonia Expeditions</h5>
+            <p class="text-muted-c mb-0">Torres del Paine, Chile — Andes climbing routes</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h4 class="text-center mb-4 reveal">Success Stories From Organized Camps</h4>
+    <div class="row g-4">
+      <div class="col-md-4 reveal">
+        <div class="story-card">
+          <i class="bi bi-quote quote-icon"></i>
+          <p class="text-muted-c">"Our guided Everest Base Camp expedition had a 100% safe-return rate this season, with three climbers summiting the Lhotse face under expert supervision."</p>
+          <div class="climber">
+            <img src="images/portrait-sarah.jpg" alt="Climber portrait">
+            <div><strong>Sarah Lin</strong><div class="text-muted-c" style="font-size:.82rem">Expedition Leader, Nepal</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 reveal">
+        <div class="story-card">
+          <i class="bi bi-quote quote-icon"></i>
+          <p class="text-muted-c">"A group of first-time climbers from our club summited Mont Blanc after an 8-week training camp — proof that preparation beats raw experience."</p>
+          <div class="climber">
+            <img src="images/portrait-marc.jpg" alt="Climber portrait">
+            <div><strong>Marc Dubois</strong><div class="text-muted-c" style="font-size:.82rem">Head Guide, Chamonix</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 reveal">
+        <div class="story-card">
+          <i class="bi bi-quote quote-icon"></i>
+          <p class="text-muted-c">"Our Patagonia camp completed the full Torres del Paine circuit in record conditions, with zero weather-related incidents this year."</p>
+          <div class="climber">
+            <img src="images/portrait-elena.jpg" alt="Climber portrait">
+            <div><strong>Elena Castillo</strong><div class="text-muted-c" style="font-size:.82rem">Camp Director, Chile</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section class="section-pad" id="gallery">
+  <div class="container">
+    <div class="text-center reveal">
+      <span class="eyebrow">Media Library</span>
+      <h2 class="section-title">Photo &amp; Video Gallery</h2>
+      <p class="section-sub mx-auto">Informative photos and videos from real climbs — filter by type and click any item to view it full-screen.</p>
+    </div>
+    <div class="gallery-filters reveal">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="photo">Photos</button>
+      <button class="filter-btn" data-filter="video">Videos</button>
+    </div>
+    <div class="row" id="galleryGrid">
+      <div class="col-md-4 gallery-item" data-type="photo" data-full="gallery-team-ridge.jpg">
+        <div class="gallery-thumb"><img src="images/gallery-team-ridge.jpg" alt="Climbing team ascending a ridge line"><span class="tag">Photo</span></div>
+      </div>
+      <div class="col-md-4 gallery-item" data-type="video" data-video-src="videos/gallery-video-1.mp4">
+        <div class="gallery-thumb"><video muted loop playsinline preload="metadata" poster="images/gallery-video-1.jpg" aria-label="Snow-capped Himalayan peak at golden hour"><source src="videos/gallery-video-1.mp4" type="video/mp4"></video><span class="tag">Video</span></div>
+      </div>
+      <div class="col-md-4 gallery-item" data-type="photo" data-full="gallery-summit-ridge.jpg">
+        <div class="gallery-thumb"><img src="images/gallery-summit-ridge.jpg" alt="Snow covered summit ridge"><span class="tag">Photo</span></div>
+      </div>
+      <div class="col-md-4 gallery-item" data-type="photo" data-full="gallery-lake-peaks.jpg">
+        <div class="gallery-thumb"><img src="images/gallery-lake-peaks.jpg" alt="Mountain lake and peaks"><span class="tag">Photo</span></div>
+      </div>
+      <div class="col-md-4 gallery-item" data-type="video" data-video-src="videos/gallery-video-2.mp4">
+        <div class="gallery-thumb"><video muted loop playsinline preload="metadata" poster="images/gallery-video-2.jpg" aria-label="Hiker walking a ridge above the clouds"><source src="videos/gallery-video-2.mp4" type="video/mp4"></video><span class="tag">Video</span></div>
+      </div>
+      <div class="col-md-4 gallery-item" data-type="photo" data-full="gallery-silhouette.jpg">
+        <div class="gallery-thumb"><img src="images/gallery-silhouette.jpg" alt="Climber silhouette against sunset"><span class="tag">Photo</span></div>
+      </div>
+      <div class="col-md-4 gallery-item" data-type="photo" data-full="gallery-rocky-trail.jpg">
+        <div class="gallery-thumb"><img src="images/gallery-rocky-trail.jpg" alt="Climber on a rocky mountain ridge"><span class="tag">Photo</span></div>
+      </div>
+      <div class="col-md-4 gallery-item" data-type="video" data-video-src="videos/gallery-video-3.mp4">
+        <div class="gallery-thumb"><video muted loop playsinline preload="metadata" poster="images/gallery-video-3.jpg" aria-label="Aerial view of a mountain hut among rocky peaks"><source src="videos/gallery-video-3.mp4" type="video/mp4"></video><span class="tag">Video</span></div>
+      </div>
+      <div class="col-md-4 gallery-item" data-type="photo" data-full="gallery-alpine-valley.jpg">
+        <div class="gallery-thumb"><img src="images/gallery-alpine-valley.jpg" alt="Alpine valley with snow peaks"><span class="tag">Photo</span></div>
+      </div>
+      <div class="col-md-4 gallery-item" data-type="video" data-video-src="videos/gallery-video-4.mp4">
+        <div class="gallery-thumb"><video muted loop playsinline preload="metadata" poster="images/gallery-video-4.jpg" aria-label="Campfire at a mountain camp at dusk"><source src="videos/gallery-video-4.mp4" type="video/mp4"></video><span class="tag">Video</span></div>
+      </div>
+      <div class="col-md-4 gallery-item" data-type="video" data-video-src="videos/gallery-video-5.mp4">
+        <div class="gallery-thumb"><video muted loop playsinline preload="metadata" poster="images/gallery-video-5.jpg" aria-label="Powerful waterfall cascading down mossy cliffs"><source src="videos/gallery-video-5.mp4" type="video/mp4"></video><span class="tag">Video</span></div>
+      </div>
+      <div class="col-md-4 gallery-item" data-type="video" data-video-src="videos/gallery-video-6.mp4">
+        <div class="gallery-thumb"><video muted loop playsinline preload="metadata" poster="images/gallery-video-6.jpg" aria-label="Frozen waterfall and mist on a snowy cliff"><source src="videos/gallery-video-6.mp4" type="video/mp4"></video><span class="tag">Video</span></div>
+      </div>
+    </div>
+    <div class="pagination-custom" id="galleryPager"></div>
+  </div>
+</section>
+
+<div class="lightbox-overlay" id="lightboxOverlay">
+  <span class="lightbox-close"><i class="bi bi-x-lg"></i></span>
+  <div class="lb-content"></div>
+</div>
+
+<!-- ============ LATEST DEVELOPMENTS ============ -->
+<section class="section-pad bg-soft" id="latest">
+  <div class="container">
+    <div class="text-center reveal">
+      <span class="eyebrow">Stay Current</span>
+      <h2 class="section-title">Latest Developments In Mountaineering</h2>
+      <p class="section-sub mx-auto">Modern technology is reshaping how climbers plan, train and stay safe on the mountain.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4 reveal">
+        <div class="dev-card"><span class="badge-new">New</span>
+          <div class="icon-box"><i class="bi bi-cpu"></i></div>
+          <h5>AI-Assisted Avalanche Forecasting</h5>
+          <p class="text-muted-c">Machine-learning models now analyse snowpack, slope and weather data to flag avalanche risk zones hours in advance.</p>
+        </div>
+      </div>
+      <div class="col-md-4 reveal">
+        <div class="dev-card">
+          <div class="icon-box"><i class="bi bi-broadcast"></i></div>
+          <h5>Satellite Communicators</h5>
+          <p class="text-muted-c">Compact satellite devices now provide two-way messaging and SOS alerts even far beyond cellular coverage.</p>
+        </div>
+      </div>
+      <div class="col-md-4 reveal">
+        <div class="dev-card"><span class="badge-new">New</span>
+          <div class="icon-box"><i class="bi bi-airplane-engines"></i></div>
+          <h5>Drone Route Scouting</h5>
+          <p class="text-muted-c">Expedition teams increasingly use drones to scout crevasse fields and icefall routes before committing a team to them.</p>
+        </div>
+      </div>
+      <div class="col-md-4 reveal">
+        <div class="dev-card">
+          <div class="icon-box"><i class="bi bi-lungs"></i></div>
+          <h5>Lightweight Oxygen Systems</h5>
+          <p class="text-muted-c">New-generation regulators and cylinders cut supplemental oxygen weight by up to 30% on 8,000m climbs.</p>
+        </div>
+      </div>
+      <div class="col-md-4 reveal">
+        <div class="dev-card">
+          <div class="icon-box"><i class="bi bi-smartwatch"></i></div>
+          <h5>Altitude &amp; Vitals Tracking</h5>
+          <p class="text-muted-c">Wearables now track blood-oxygen saturation and heart rate in real time, helping climbers catch early signs of AMS.</p>
+        </div>
+      </div>
+      <div class="col-md-4 reveal">
+        <div class="dev-card"><span class="badge-new">New</span>
+          <div class="icon-box"><i class="bi bi-cloud-sun"></i></div>
+          <h5>Hyper-local Weather Modeling</h5>
+          <p class="text-muted-c">High-resolution forecasting now predicts summit-day weather windows for specific peaks days in advance.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GENERAL GUIDELINES ============ -->
+<section class="section-pad" id="guidelines">
+  <div class="container">
+    <div class="row g-4 g-lg-5 align-items-start">
+      <div class="col-lg-5 reveal">
+        <span class="eyebrow">Climb Smart</span>
+        <h2 class="section-title">General Safety Guidelines</h2>
+        <p class="text-muted-c">Mountaineering lacks a single formal rulebook — these widely-accepted guidelines keep every expedition, from first-timers to veterans, safer.</p>
+        <img src="images/gallery-redjacket.jpg" class="img-fluid rounded-4 mt-3" alt="Climbers following a guideline checklist before ascent" style="box-shadow:var(--card-shadow)">
+      </div>
+      <div class="col-lg-7 reveal">
+        <div class="guideline-item"><div class="num">1</div><div><h6 class="mb-1">Acclimatize Gradually</h6><p class="text-muted-c mb-0">Ascend slowly and allow your body time to adapt to altitude — "climb high, sleep low."</p></div></div>
+        <div class="guideline-item"><div class="num">2</div><div><h6 class="mb-1">Check Gear Twice</h6><p class="text-muted-c mb-0">Inspect ropes, crampons, harnesses and ice axes before every climb.</p></div></div>
+        <div class="guideline-item"><div class="num">3</div><div><h6 class="mb-1">Plan Around The Weather</h6><p class="text-muted-c mb-0">Study forecasts and always have a turnaround time, regardless of how close the summit feels.</p></div></div>
+        <div class="guideline-item"><div class="num">4</div><div><h6 class="mb-1">Never Climb Alone</h6><p class="text-muted-c mb-0">Use the buddy system and register your route plan with a club or local authority.</p></div></div>
+        <div class="guideline-item"><div class="num">5</div><div><h6 class="mb-1">Get Proper Permits</h6><p class="text-muted-c mb-0">Many ranges require climbing permits — confirm local regulations before departure.</p></div></div>
+        <div class="guideline-item"><div class="num">6</div><div><h6 class="mb-1">Leave No Trace</h6><p class="text-muted-c mb-0">Pack out all waste and respect the fragile high-altitude environment.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section-pad bg-soft" id="faq">
+  <div class="container">
+    <div class="text-center reveal">
+      <span class="eyebrow">Got Questions?</span>
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <p class="section-sub mx-auto">Click on a question to expand the answer.</p>
+    </div>
+    <div class="row justify-content-center reveal">
+      <div class="col-lg-9">
+        <div class="faq-list">
+          <div class="faq-item open">
+            <div class="faq-question">Do I need prior climbing experience to join an expedition? <span class="faq-toggle-icon"><i class="bi bi-plus-lg"></i></span></div>
+            <div class="faq-answer"><div class="faq-answer-inner">No — we offer expeditions for all levels, from beginner treks to technical 8,000m climbs. Our team will match you with a suitable route and training plan.</div></div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">How do I create an account on this website? <span class="faq-toggle-icon"><i class="bi bi-plus-lg"></i></span></div>
+            <div class="faq-answer"><div class="faq-answer-inner">Click "Sign Up" in the navbar, fill in your details, and submit. You'll be redirected to the Login page to sign in with your new account.</div></div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">Can I switch between dark and light mode? <span class="faq-toggle-icon"><i class="bi bi-plus-lg"></i></span></div>
+            <div class="faq-answer"><div class="faq-answer-inner">Yes — use the sun/moon toggle in the navbar. Your preference is saved automatically for your next visit.</div></div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">Where can I see mountaineering world records? <span class="faq-toggle-icon"><i class="bi bi-plus-lg"></i></span></div>
+            <div class="faq-answer"><div class="faq-answer-inner">Visit the Records section — it lists milestone achievements with pagination so you can browse through all entries.</div></div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">How are climbing organizations displayed on the map? <span class="faq-toggle-icon"><i class="bi bi-plus-lg"></i></span></div>
+            <div class="faq-answer"><div class="faq-answer-inner">Each partner club is shown with an embedded map using geolocation coordinates, alongside a short success story from their recent camps.</div></div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">Is the AI Assistant a real chatbot? <span class="faq-toggle-icon"><i class="bi bi-plus-lg"></i></span></div>
+            <div class="faq-answer"><div class="faq-answer-inner">Yes — the Peak Assistant (bottom-right icon) answers your questions using a built-in knowledge base about mountaineering and the website itself, no internet connection required.</div></div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">Does the website work on mobile devices? <span class="faq-toggle-icon"><i class="bi bi-plus-lg"></i></span></div>
+            <div class="faq-answer"><div class="faq-answer-inner">Yes, the entire site — navigation, slider, gallery, and forms — is fully responsive across desktop, tablet and mobile.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="section-pad" id="contact">
+  <div class="container">
+    <div class="row g-4 g-lg-5">
+      <div class="col-lg-5 reveal">
+        <span class="eyebrow">Get In Touch</span>
+        <h2 class="section-title">Plan Your Next Expedition</h2>
+        <p class="text-muted-c">Have a question about a route, a club partnership, or this website? Send us a message and our team will respond shortly.</p>
+        <div class="d-flex align-items-center gap-3 mb-3"><div class="icon-box" style="margin-bottom:0"><i class="bi bi-geo-alt"></i></div> 221B Basecamp Road, Kathmandu, Nepal</div>
+        <div class="d-flex align-items-center gap-3 mb-3"><div class="icon-box" style="margin-bottom:0"><i class="bi bi-envelope"></i></div> info@alpineascents.example</div>
+        <div class="d-flex align-items-center gap-3"><div class="icon-box" style="margin-bottom:0"><i class="bi bi-telephone"></i></div> +1 (555) 012-3456</div>
+      </div>
+      <div class="col-lg-7 reveal">
+        <form class="contact-form" id="contactForm">
+          <div class="row">
+            <div class="col-md-6"><input type="text" class="form-control" placeholder="Full Name" required></div>
+            <div class="col-md-6"><input type="email" class="form-control" placeholder="Email Address" required></div>
+          </div>
+          <input type="text" class="form-control" placeholder="Subject">
+          <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+          <button type="submit" class="btn btn-brand"><i class="bi bi-send me-1"></i> Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <a class="navbar-brand mb-3 d-inline-flex footer-brand" href="#home" aria-label="Alpine Ascents home"><span class="brand-logo"><img class="brand-mark" src="images/logo.png" alt="Alpine Ascents logo"><span class="brand-text"><b>Alpine</b><small>Ascents</small></span></span></a>
+        <p>Enhancing mountaineering education through technology — detailed information, real records, and guided expeditions for every climber.</p>
+        <div class="d-flex gap-2 mt-3">
+          <a href="#" class="social-ico"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="social-ico"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="social-ico"><i class="bi bi-youtube"></i></a>
+          <a href="#" class="social-ico"><i class="bi bi-twitter-x"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-2 col-6">
+        <h5>Explore</h5>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#mountaineering">Mountaineering</a></li>
+          <li><a href="#records">Records</a></li>
+          <li><a href="#organizations">Organizations</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-6">
+        <h5>More</h5>
+        <ul>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#latest">Latest</a></li>
+          <li><a href="#guidelines">Guidelines</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-4">
+        <h5>Account</h5>
+        <ul>
+          <li><a href="#login" data-auth-open="login">Login</a></li>
+          <li><a href="#signup" data-auth-open="signup">Sign Up</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom d-flex flex-wrap justify-content-between gap-2">
+      <span>&copy; <span id="currentYear"></span> Alpine Ascents. All rights reserved.</span>
+      <span>Built as an eProject — Single Page Application Demo</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ TICKER ============ -->
+<div class="ticker-bar">
+  <div class="ticker-label"><i class="bi bi-broadcast-pin me-1"></i> Live</div>
+  <div class="ticker-track-wrap">
+    <div class="ticker-track">
+      <span><i class="bi bi-calendar3 me-1"></i> <span id="tickerDate"></span></span>
+      <span><i class="bi bi-clock me-1"></i> <span id="tickerTime"></span></span>
+      <span><i class="bi bi-geo-alt me-1"></i> <span id="tickerLocation">Fetching your location…</span></span>
+      <span><i class="bi bi-mountain me-1"></i> Alpine Ascents — Enhancing Mountaineering Through Technology</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============ AI ASSISTANT (Peak Assistant) ============ -->
+<button class="chatbot-toggle" id="chatbotToggle" aria-label="Open AI Assistant"><i class="bi bi-robot"></i></button>
+<div class="chatbot-window" id="chatbotWindow">
+  <div class="chatbot-header">
+    <div class="bot-ico"><i class="bi bi-robot"></i></div>
+    <div>
+      <div class="fw-bold">Peak Assistant</div>
+      <div class="status"><span class="dot"></span> Online — ask me anything</div>
+    </div>
+    <div class="chatbot-close" id="chatbotClose"><i class="bi bi-x-lg"></i></div>
+  </div>
+  <div class="chatbot-body" id="chatbotBody">
+    <div class="msg bot">Hi! I'm Peak Assistant 🏔️ Ask me about mountaineering history, techniques, hazards, records, or how to use this site.</div>
+  </div>
+  <div class="chatbot-suggestions">
+    <button type="button">History</button>
+    <button type="button">Hazards</button>
+    <button type="button">Records</button>
+    <button type="button">Dark mode</button>
+  </div>
+  <form class="chatbot-input" id="chatbotForm">
+    <input type="text" id="chatbotInput" placeholder="Type your question..." autocomplete="off">
+    <button type="submit"><i class="bi bi-send"></i></button>
+  </form>
+</div>
+
+<!-- Scripts -->
+<!-- ============ LOGIN / SIGN UP (popup) ============ -->
+<div class="auth-modal" id="authModal" role="dialog" aria-modal="true" aria-label="Login or Sign Up" hidden>
+<div class="auth-wrap">
+  <div class="auth-card" id="authCard" data-mode="login">
+    <button type="button" class="auth-close" data-auth-close aria-label="Close"><i class="bi bi-x-lg"></i></button>
+
+    <!-- left: photo + text (changes with Login / Sign Up) -->
+    <div class="auth-visual">
+      <div class="auth-visual-bg" data-for="login" style="background-image:url('images/hero-3-login.jpg')"></div>
+      <div class="auth-visual-bg" data-for="signup" style="background-image:url('images/hero-4-signup.jpg')"></div>
+      <div class="av-text">
+        <div class="mb-3"><span class="brand-logo on-photo"><img class="brand-mark" src="images/logo.png" alt="Alpine Ascents logo"><span class="brand-text"><b>Alpine</b><small>Ascents</small></span></span></div>
+        <div data-for="login">
+          <h3>Welcome Back, Climber</h3>
+          <p class="mb-0">Sign in to track records, connect with guiding clubs and plan your next ascent.</p>
+        </div>
+        <div data-for="signup" hidden>
+          <h3>Start Your Climbing Journey</h3>
+          <p class="mb-0">Create a free account to explore records, clubs and the full mountaineering knowledge base.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- right: forms -->
+    <div class="auth-form-side">
+      <a href="#home" data-auth-close class="text-decoration-none mb-4 d-inline-flex" aria-label="Alpine Ascents home"><span class="brand-logo"><img class="brand-mark" src="images/logo.png" alt="Alpine Ascents logo"><span class="brand-text"><b>Alpine</b><small>Ascents</small></span></span></a>
+
+      <div class="auth-tabs" role="tablist">
+        <button type="button" class="auth-tab active" data-mode="login" role="tab">Login</button>
+        <button type="button" class="auth-tab" data-mode="signup" role="tab">Sign Up</button>
+      </div>
+
+      <div class="auth-alert" id="authAlert" role="alert" hidden></div>
+
+      <!-- LOGIN -->
+      <div class="auth-panel" data-for="login">
+        <h2 class="mb-1">Login to your account</h2>
+        <p class="text-muted-c mb-4">Enter your details below to continue.</p>
+        <form id="loginForm" class="needs-validation" novalidate>
+          <div class="input-group-auth">
+            <i class="bi bi-envelope"></i>
+            <input type="email" class="form-control" placeholder="Email address" required>
+            <div class="invalid-feedback">Please enter a valid email address.</div>
+          </div>
+          <div class="input-group-auth">
+            <i class="bi bi-lock"></i>
+            <input type="password" class="form-control" placeholder="Password" minlength="4" required>
+            <div class="invalid-feedback">Password must be at least 4 characters.</div>
+          </div>
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="remember">
+              <label class="form-check-label text-muted-c" for="remember">Remember me</label>
+            </div>
+            <a href="#" id="forgotLink" class="text-decoration-none" style="color:var(--brand)">Forgot password?</a>
+          </div>
+          <button type="submit" class="btn btn-brand w-100 py-2">Login <i class="bi bi-box-arrow-in-right ms-1"></i></button>
+        </form>
+        <p class="text-center text-muted-c mt-4 mb-0">Don't have an account? <a href="#signup" class="auth-switch" data-mode="signup" style="color:var(--brand);font-weight:600">Sign Up</a></p>
+      </div>
+
+      <!-- SIGN UP -->
+      <div class="auth-panel" data-for="signup" hidden>
+        <h2 class="mb-1">Create your account</h2>
+        <p class="text-muted-c mb-4">Join the community and start planning your next ascent.</p>
+        <form id="signupForm" class="needs-validation" novalidate>
+          <div class="input-group-auth">
+            <i class="bi bi-person"></i>
+            <input type="text" class="form-control" placeholder="Full Name" required>
+            <div class="invalid-feedback">Please enter your full name.</div>
+          </div>
+          <div class="input-group-auth">
+            <i class="bi bi-envelope"></i>
+            <input type="email" class="form-control" placeholder="Email address" required>
+            <div class="invalid-feedback">Please enter a valid email address.</div>
+          </div>
+          <div class="input-group-auth">
+            <i class="bi bi-lock"></i>
+            <input type="password" class="form-control" placeholder="Password" minlength="4" required>
+            <div class="invalid-feedback">Password must be at least 4 characters.</div>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="terms" required>
+            <label class="form-check-label text-muted-c" for="terms">I agree to the Terms &amp; Privacy Policy</label>
+            <div class="invalid-feedback">You must agree before continuing.</div>
+          </div>
+          <button type="submit" class="btn btn-brand w-100 py-2">Create Account <i class="bi bi-person-plus ms-1"></i></button>
+        </form>
+        <p class="text-center text-muted-c mt-4 mb-0">Already have an account? <a href="#login" class="auth-switch" data-mode="login" style="color:var(--brand);font-weight:600">Login</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/gsap.min.js"></script>
+<script src="js/ScrollTrigger.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/chatbot.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/scroll-effects.js"></script>
+<script src="js/animations.js"></script>
+<script src="js/cursor.js"></script>
+<script>
+  // Dropdown links that should also switch the active mountaineering tab
+  document.querySelectorAll('[data-tab]').forEach(function (el) {
+    el.addEventListener('click', function (e) {
+      e.preventDefault();
+      var tab = document.querySelector('#topicTabs button[data-bs-target="#' + el.dataset.tab + '"]');
+      if (tab) new bootstrap.Tab(tab).show();
+      document.getElementById('mountaineering').scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+</script>
+</body>
+</html>
